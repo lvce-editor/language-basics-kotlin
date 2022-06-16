@@ -1,0 +1,12 @@
+{
+  "id": "builtin.language-basics-kotlin",
+  "name": "Language Basics Kotlin",
+  "description": "Provides syntax highlighting and bracket matching in Kotlin files.",
+  "languages": [
+    {
+      "id": "kotlin",
+      "extensions": [".kt"],
+      "tokenize": "src/tokenizeKotlin.js"
+    }
+  ]
+}
