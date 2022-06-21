@@ -1,6 +1,5 @@
 # Language Basics Kotlin
 
-
 ## Contributing
 
 ```sh
