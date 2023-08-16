@@ -49,10 +49,10 @@ const RE_ANYTHING_UNTIL_CLOSE_BRACE = /^[^\}]+/
 const RE_QUOTE_DOUBLE = /^"/
 const RE_STRING_DOUBLE_QUOTE_CONTENT = /^[^"]+/
 const RE_KEYWORD =
-  /^(?:while|when|var|val|typeof|typealias|try|true|throw|this|super|return|package|object|null|is|interface|in|if|fun|for|false|else|do|continue|class|break|as)\b/
+  /^(?:while|when|var|val|typeof|typealias|try|true|throw|this|super|return|package|object|null|is|interface|in|if|fun|for|false|else|do|continue|class|break|as|enum|String)\b/
 
-const RE_VARIABLE_NAME = /^[a-zA-Z]+/
-const RE_PUNCTUATION = /^[:,;\{\}\[\]\.=\(\)<>]/
+const RE_VARIABLE_NAME = /^[a-zA-Z\_\$]+/
+const RE_PUNCTUATION = /^[:,;\{\}\[\]\.=\(\)<>\-]/
 const RE_NUMERIC = /^\d+/
 
 export const initialLineState = {
@@ -62,12 +62,19 @@ export const initialLineState = {
 
 export const hasArrayReturn = true
 
+/**
+ *
+ * @param {any} lineStateA
+ * @param {*} lineStateB
+ * @returns
+ */
 export const isEqualLineState = (lineStateA, lineStateB) => {
   return lineStateA.state === lineStateB.state
 }
 
 /**
  * @param {string} line
+ * @param {any} lineState
  */
 export const tokenizeLine = (line, lineState) => {
   let next = null
