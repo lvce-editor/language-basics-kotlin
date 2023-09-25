@@ -14,12 +14,12 @@ Punctuation
 Whitespace
 Numeric
 NewLine
-Keyword
+KeywordControl
 Whitespace
 Punctuation
 VariableName
 Whitespace
-Keyword
+KeywordControl
 Whitespace
 Numeric
 Punctuation

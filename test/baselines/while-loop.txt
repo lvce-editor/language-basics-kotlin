@@ -29,7 +29,7 @@ Punctuation
 Whitespace
 Numeric
 NewLine
-Keyword
+KeywordControl
 Whitespace
 Punctuation
 VariableName

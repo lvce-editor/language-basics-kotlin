@@ -21,12 +21,12 @@ String
 PunctuationString
 Punctuation
 NewLine
-Keyword
+KeywordControl
 Whitespace
 Punctuation
 VariableName
 Whitespace
-Keyword
+KeywordControl
 Whitespace
 VariableName
 Punctuation

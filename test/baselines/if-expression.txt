@@ -1,4 +1,4 @@
-Keyword
+KeywordFunction
 Whitespace
 VariableName
 Punctuation
@@ -16,7 +16,7 @@ Punctuation
 Whitespace
 Punctuation
 Whitespace
-Keyword
+KeywordControl
 Whitespace
 Punctuation
 VariableName
@@ -28,6 +28,6 @@ Punctuation
 Whitespace
 VariableName
 Whitespace
-Keyword
+KeywordControl
 Whitespace
 VariableName

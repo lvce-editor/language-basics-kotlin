@@ -24,6 +24,21 @@ export const TokenType = {
   Punctuation: 7,
   VariableName: 8,
   Comment: 60,
+  Error: 141,
+  NewLine: 771,
+  LanguageConstant: 13,
+  Regex: 14,
+  KeywordImport: 215,
+  KeywordControl: 881,
+  KeywordModifier: 882,
+  KeywordReturn: 883,
+  KeywordNew: 884,
+  FunctionName: 885,
+  KeywordThis: 886,
+  KeywordOperator: 887,
+  KeywordFunction: 889,
+  Class: 890,
+  KeywordVoid: 891,
 }
 
 export const TokenMap = {
@@ -36,6 +51,24 @@ export const TokenMap = {
   [TokenType.Punctuation]: 'Punctuation',
   [TokenType.VariableName]: 'VariableName',
   [TokenType.Comment]: 'Comment',
+  [TokenType.Error]: 'Error',
+  [TokenType.PunctuationString]: 'PunctuationString',
+  [TokenType.NewLine]: 'NewLine',
+  [TokenType.Keyword]: 'Keyword',
+  [TokenType.VariableName]: 'VariableName',
+  [TokenType.LanguageConstant]: 'LanguageConstant',
+  [TokenType.Regex]: 'Regex',
+  [TokenType.KeywordImport]: 'KeywordImport',
+  [TokenType.KeywordControl]: 'KeywordControl',
+  [TokenType.KeywordModifier]: 'KeywordModifier',
+  [TokenType.KeywordReturn]: 'KeywordReturn',
+  [TokenType.KeywordNew]: 'KeywordNew',
+  [TokenType.FunctionName]: 'Function',
+  [TokenType.KeywordThis]: 'KeywordThis',
+  [TokenType.KeywordOperator]: 'KeywordOperator',
+  [TokenType.KeywordFunction]: 'KeywordFunction',
+  [TokenType.KeywordVoid]: 'KeywordVoid',
+  [TokenType.Class]: 'Class',
 }
 
 const RE_SELECTOR = /^[\.a-zA-Z\d\-\:>]+/
@@ -102,8 +135,71 @@ export const tokenizeLine = (line, lineState) => {
           token = TokenType.Whitespace
           state = State.TopLevelContent
         } else if ((next = part.match(RE_KEYWORD))) {
-          token = TokenType.Keyword
-          state = State.TopLevelContent
+          switch (next[0]) {
+            case 'true':
+            case 'false':
+            case 'null':
+              token = TokenType.LanguageConstant
+              state = State.TopLevelContent
+              break
+            case 'switch':
+            case 'default':
+            case 'case':
+            case 'else':
+            case 'if':
+            case 'break':
+            case 'throw':
+            case 'for':
+            case 'try':
+            case 'catch':
+            case 'finally':
+            case 'continue':
+            case 'when':
+            case 'while':
+            case 'do':
+            case 'in':
+              token = TokenType.KeywordControl
+              state = State.TopLevelContent
+              break
+            case 'return':
+              token = TokenType.KeywordReturn
+              state = State.TopLevelContent
+              break
+            case 'new':
+              token = TokenType.KeywordNew
+              state = State.TopLevelContent
+              break
+            case 'this':
+              token = TokenType.KeywordThis
+              state = State.TopLevelContent
+              break
+            case 'fun':
+              token = TokenType.KeywordFunction
+              state = State.TopLevelContent
+              break
+            case 'Infinity':
+              token = TokenType.Numeric
+              state = State.TopLevelContent
+              break
+            case 'of':
+              token = TokenType.Keyword
+              state = State.TopLevelContent
+              break
+            case 'class':
+            case 'extends':
+              token = TokenType.Keyword
+              state = State.TopLevelContent
+              break
+            case 'var':
+            case 'val':
+              token = TokenType.Keyword
+              state = State.TopLevelContent
+              break
+            default:
+              token = TokenType.Keyword
+              state = State.TopLevelContent
+              break
+          }
         } else if ((next = part.match(RE_PUNCTUATION))) {
           token = TokenType.Punctuation
           state = State.TopLevelContent
