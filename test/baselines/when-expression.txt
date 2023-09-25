@@ -1,4 +1,4 @@
-Keyword
+KeywordFunction
 Whitespace
 VariableName
 Punctuation
@@ -14,7 +14,7 @@ Whitespace
 Punctuation
 NewLine
 Whitespace
-Keyword
+KeywordControl
 Whitespace
 Punctuation
 VariableName
@@ -70,7 +70,7 @@ String
 PunctuationString
 NewLine
 Whitespace
-Keyword
+KeywordControl
 Whitespace
 Punctuation
 Punctuation
