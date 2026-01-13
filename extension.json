@@ -5,8 +5,11 @@
   "languages": [
     {
       "id": "kotlin",
-      "extensions": [".kt"],
+      "extensions": [
+        ".kt"
+      ],
       "tokenize": "src/tokenizeKotlin.js"
     }
-  ]
+  ],
+  "repository": "https://github.com/lvce-editor/language-basics-kotlin"
 }
