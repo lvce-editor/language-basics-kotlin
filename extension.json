@@ -5,9 +5,7 @@
   "languages": [
     {
       "id": "kotlin",
-      "extensions": [
-        ".kt"
-      ],
+      "extensions": [".kt"],
       "tokenize": "src/tokenizeKotlin.js"
     }
   ],
